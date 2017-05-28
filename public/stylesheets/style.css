@@ -1,0 +1,87 @@
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#homepage{
+  background-color:white;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+
+h1,h2{
+  text-align: center;
+}
+
+.block, .row{
+  text-align: center;
+}
+
+.input-field.col.s6{
+  margin-top:5px;
+  width:30%;
+}
+
+#start-button{
+  display:inline-block;
+}
+
+table{
+  margin-top:80px;
+}
+
+/*input[type='text']:focus{
+  width:170%;
+}*/
+
+#username:focus{
+  width:170%;
+}
+
+#password:focus{
+  width:170%;
+}
+
+#first_name:focus{
+  width:170%;
+}
+
+#last_name:focus{
+  width:170%;
+}
+
+#company_name:focus{
+  width:170%;
+}
+
+.submitButton{
+  display: inline-block;
+  margin-top:90px;
+  left:0;
+  padding:0;
+}
+
+/*input[type='password']:focus{
+  width:170%;
+}*/
+
+.fa.fa-home{
+  margin-left:10px;
+}
+
+
+label{
+  transition:
+    font-size: .8rem;
+    transform: translateY(-140%);
+}
+
+.input-field.col.s6{
+  margin-left:5px;
+}

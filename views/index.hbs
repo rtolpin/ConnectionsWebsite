@@ -1,0 +1,81 @@
+
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  {{#if username}}
+    <nav class='blue light-3'>
+      <div class='nav-wrapper'>
+        <a href="#" data-activates="slide-out" class="brand-logo"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+         <li><a href="/logout">Logout</a></li>
+       </ul>
+      </div>
+    </nav>
+    <div class="w3-sidebar w3-bar-block w3-border-right blue" style="display:none; color:white;" id="mySidebar">
+      <button class="w3-bar-item w3-button blue darken-2" id='closeBtn'>Hide &times;</button>
+      <a href="/find/connections" class="w3-bar-item w3-button">Find Connections</a>
+      <a href="/profile" class="w3-bar-item w3-button">Profile</a>
+      <a href="/search" class="w3-bar-item w3-button">Search</a>
+      <a href="/about" class="w3-bar-item w3-button">About</a>
+    </div>
+    <!--<ul id="slide-out" class="side-nav">
+      <li><div class="userView">
+        <div class="background">
+        </div>
+        <a href="#!"><span>John Doe</span></a>
+        <a href="#!"><span>jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
+    <h2 id='welcome'>Welcome to your Homepage, {{first_name}}</h2>
+  {{else}}
+    <nav class='blue darken-4'>
+      <div class='nav-wrapper'>
+        <a href="#" class="brand-logo">Connect</a>
+       <ul id="nav-mobile" class="right hide-on-med-and-down">
+         <li><a href="/register">Sign Up</a></li>
+         <li><a href="/login">Login</a></li>
+         <li><a href="">Facebook Login</a></li>
+       </ul>
+      </div>
+    </nav>
+    <h1>Connections</h1>
+    <div class='block'>
+      <a href="/register" id="start-button" class="btn-large waves-effect waves-light blue">Get Started</a>
+    </div>
+  {{/if}}
+<script type='text/javascript'>
+  $(document).ready(function(){
+      //$(".button-collapse").sideNav();
+      $(".brand-logo").click(function(){
+        console.log('brand logo clicked');
+        var sidebar = $(".w3-sidebar.w3-bar-block.w3-border-right");
+        var header = $("#welcome");
+        console.log(sidebar);
+        sidebar.show();
+        header.hide();
+        var icon = $('.material-icons');
+        icon.replaceWith('<i class="fa fa-home"></i>');
+      });
+
+      $('#closeBtn').click(function(){
+        var sidebar = $(".w3-sidebar.w3-bar-block.w3-border-right");
+        sidebar.hide();
+        var icon = $('.fa.fa-home');
+        icon.replaceWith('<i class="material-icons">menu</i>');
+      });
+  });
+</script>
+</body>

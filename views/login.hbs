@@ -1,0 +1,50 @@
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <script type='text/javascript' src='javascripts/main.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav class='blue light-3'>
+    <div class='nav-wrapper'>
+      <a href="/" class="brand-logo"><i class="fa fa-home"></i></a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li><a href="/register">Sign Up</a></li>
+       <li><a href="/login">Login</a></li>
+       <li><a href="">Facebook Login</a></li>
+     </ul>
+    </div>
+  </nav>
+  <div class='row'>
+    <h2>Login</h2>
+    <form class='col s12' action='/login' method='post'>
+      <div class="row">
+          <div class="input-field col s6" style="width:30%; margin-top:80px;">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="username_login" type="text" class="validate" name="username">
+            <label for="username_login">Username</label>
+          </div>
+          <div class="input-field col s6" style="width:30%; margin-top:80px;">
+            <input id="password_login" type="password" class="validate" name="password">
+            <label for="password_login">Password</label>
+          </div>
+          <div class='submitButton col'>
+            <button type='submit' class='waves-effect waves-light btn black'>Submit<i class="material-icons right">send</i>
+            </button>
+          </div>
+          {{#if userDoesNotExist}}
+            <div>
+              <p style='margin-top:5;'><mark class='red'>{{userDoesNotExist}}</mark></p>
+            </div>
+          {{/if}}
+          {{#if incorrectPassword}}
+            <div>
+              <p style='margin-top:5;'><mark class='red'>{{incorrectPassword}}</mark></p>
+            </div>
+          {{/if}}
+      </div>
+    </form>
+  </div>
+</body>

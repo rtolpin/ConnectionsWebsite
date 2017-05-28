@@ -1,0 +1,64 @@
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <script type='text/javascript' src='javascripts/main.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav class='blue light-3'>
+    <div class='nav-wrapper'>
+      <a href="/" class="brand-logo"><i class="fa fa-home"></i></a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li><a href="/register">Sign Up</a></li>
+       <li><a href="/login">Login</a></li>
+       <li><a href="">Facebook Login</a></li>
+     </ul>
+    </div>
+  </nav>
+  <div class='container'>
+    <h2>Register</h2>
+    <div class='row'>
+      <form class='col s12' method='post' action='/register'>
+        <div class="row">
+            <div class="input-field col s6">
+              <input id="username" name="username" type="text" class="validate">
+              <label for="username">Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+              <input id="password" name="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+              <input id="first_name" name="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="last_name" type="text" name="last_name" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="company_name" name="company" type="text" class="validate">
+            <label for="company_name">Company</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="birthday" type="date" name="birthday" class="datepicker">
+            <label for="birthday">Birthday</label>
+          </div>
+        </div>
+        <input type='submit' class='waves-effect waves-light btn' value='Go'>
+      </form>
+    </div>
+  </div>
+</body>

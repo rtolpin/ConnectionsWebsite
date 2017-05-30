@@ -4,7 +4,6 @@
   <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   {{#if username}}
@@ -34,7 +33,7 @@
       <li><a class="subheader">About</a></li>
       <li><a class="waves-effect" href="/about">About This Site</a></li>
     </ul>
-    <table class='highlight responsive-table' style='margin-top:0;'>
+    <table class='highlight responsive-table' style='margin-top:0; margin-left:2px;'>
       <thead>
         <tr>
             <th>First Name</th>
@@ -45,19 +44,19 @@
       </thead>
 
       <tbody>
-        {{#each users}}
+        {{#each users as |user}}
           <tr>
-            <td>{{first_name}}</td>
-            <td>{{last_name}}</td>
-            <td>{{company}}</td>
-            <td><{{location}}</td>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.company}}</td>
+            <td><{{user.location}}</td>
           </tr>
         {{/each}}
       </tbody>
       {{#if searchCompany}}
-      <form action='/search' method='get'>
-        <button type='submit' class='waves-effect waves-light btn'>View All Users</button>
-      </form>
+        <form action='/search' method='get'>
+          <button type='submit' class='waves-effect waves-light btn'>View All Users</button>
+        </form>
       {{/if}}
     </table>
     {{else}}

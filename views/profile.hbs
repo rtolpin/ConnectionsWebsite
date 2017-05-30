@@ -1,0 +1,86 @@
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</head>
+<body class='black'>
+  {{#if username}}
+    <nav class='blue' style=''>
+      <div class="nav-wrapper">
+        <a href="#" data-activates="slide-out" class="brand-logo"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <ul id="slide-out" class="side-nav">
+      <li><a class="subheader">Home</a></li>
+      <li><a class="waves-effect" href="/">Go Back Home</a></li>
+      <li><a class="subheader">Connect</a></li>
+      <li><a class="waves-effect" href="/find/connections">Find Connections</a></li>
+      <li><a class="subheader">Me</a></li>
+      <li><a class="waves-effect" href="/profile">Profile</a></li>
+      <li><a class="subheader">Search</a></li>
+      <li><a class="waves-effect" href="/search"><i class="material-icons">search</i></a></li>
+      <li><a class="subheader">About</a></li>
+      <li><a class="waves-effect" href="/about">About This Site</a></li>
+    </ul>
+    <div>
+      <div class='card' style='width:80%; margin-left:10px;'>
+        <div class='row'>
+          <div class='col s6'>
+            <form action='' method='post'>
+              <img src="images/connections.gif" id='profileImg' style='width:40%;'>
+               <!--<input type="file" name="profilePic">-->
+            </form>
+          </div>
+        </div>
+          <div class='row'>
+            {{#if user}}
+              <div class='col s3' style="margin-left:0;">
+                <div class="divider"></div>
+                <div class="section">
+                  <h6><strong>Name</strong></h6>
+                  <p class='blue-text'>{{user.first_name}} {{user.last_name}}</p>
+                </div>
+              </div>
+              <div class='col s3'>
+                  <div class="divider"></div>
+                  <div class="section">
+                    <h6><strong>Birthday</strong></h6>
+                    <p class='blue-text'>{{user.birthday}}</p>
+                  </div>
+                </div>
+              <div class='col s3'>
+                  <div class="divider"></div>
+                  <div class="section">
+                    <h6><strong>Company</strong></h6>
+                    <p class='blue-text'>{{user.company}}</p>
+                  </div>
+              </div>
+              <div class='col s3'>
+                  <div class="divider"></div>
+                  <div class="section">
+                    <h6><strong>Location</strong></h6>
+                    <p class='blue-text'>{{user.location}}</p>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      {{/if}}
+      <!--    <div class="image-upload">
+            <label for="file-input">
+                <img src="images/placeholder_person.png" style='width:30%;'/>
+            </label>
+            <input id="file-input" type="file"/>
+          </div>
+    </div>-->
+    <script>
+      $(document).ready(function(){
+          $(".brand-logo").sideNav();
+      });
+    </script>
+  {{else}}
+    <h6>Restricted: Cannot View Page</h6>
+  {{/if}}
+</body>

@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
       console.log(user);
       console.log(user.first_name);
       //context = {user: user};
-      res.render('index', {user: user, first_name: user.first_name, username: req.session.username});
+      res.render('index', {user: user, username: req.session.username});
     }
   });
 });
@@ -31,6 +31,12 @@ router.get('/register', function(req, res){
 
 router.get('/login', function(req, res){
   res.render('login');
+});
+
+router.get('/profile', function(req, res){
+  UserSchema.findOne({username: req.session.username}, (err, user) => {
+    res.render('profile', {username: req.session.username, user: user});
+  });
 });
 
 router.get('/search', function(req, res){

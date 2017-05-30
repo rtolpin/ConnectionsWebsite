@@ -76,6 +76,18 @@ table{
   margin-left:10px;
 }
 
+#profileImg{
+  float:left;
+  width:80%;
+  margin-top:10px;
+}
+
+#imageUpload{
+  width: 30%;
+  margin-left: 85px;
+  margin-top: 1px;
+}
+
 
 /*label{
   transition:

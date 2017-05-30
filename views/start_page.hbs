@@ -2,8 +2,8 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  <script type='text/javascript' src='javascripts/main.js'></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -19,8 +19,14 @@
   </nav>
   <div class='container'>
     <h2>Register</h2>
+    {{#if MissingFieldsMessage}}
+      <h6 class='red' style='width:30%;'>{{MissingFieldsMessage}}</h6>
+    {{/if}}
+    {{#if ExistsErrMessage}}
+      <h6 class='red' style='width:30%;'>{{ExistsErrMessage}}</h6>
+    {{/if}}
     <div class='row'>
-      <form class='col s12' method='post' action='/register'>
+      <form class='col s6' method='post' action='/register'>
         <div class="row">
             <div class="input-field col s6">
               <input id="username" name="username" type="text" class="validate">
@@ -51,6 +57,26 @@
             <label for="company_name">Company</label>
           </div>
         </div>
+        <!--<div class="row">
+          <div class="input-field col s6">
+            <input id="location" name="location" type="text" class="validate">
+            <label for="location">Location</label>
+          </div>
+        </div>--->
+        <div class="row">
+          <div class="input-field col s12">
+            <select id='selectLocation' name='location'>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">California</option>
+              <option value="2">Conneticut</option>
+              <option value="3">Florida</option>
+              <option value="4">Massachusetts</option>
+              <option value="5">New Jersey</option>
+              <option value="6">New York</option>
+            </select>
+            <label>Location</label>
+          </div>
+        </div>
         <div class="row">
           <div class="input-field col s6">
             <input id="birthday" type="date" name="birthday" class="datepicker">
@@ -61,4 +87,14 @@
       </form>
     </div>
   </div>
+  <script>
+
+  $(document).ready(function(){
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 150 // Creates a dropdown of 15 years to control year
+    });
+    $('select').material_select();
+  });
+  </script>
 </body>

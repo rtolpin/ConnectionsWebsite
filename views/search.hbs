@@ -1,0 +1,71 @@
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  {{#if username}}
+    <nav class='blue' style=''>
+      <div class="nav-wrapper">
+        <a href="#" data-activates="slide-out" class="brand-logo"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <div class='container'>
+      <form action='/search' method='get'>
+        <div class="input-field">
+          <input id="search" placeholder="Search By Company..." type="search" name="company" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+    <ul id="slide-out" class="side-nav">
+      <li><a class="subheader">Home</a></li>
+      <li><a class="waves-effect" href="/">Go Back Home</a></li>
+      <li><a class="subheader">Connect</a></li>
+      <li><a class="waves-effect" href="/find/connections">Find Connections</a></li>
+      <li><a class="subheader">Me</a></li>
+      <li><a class="waves-effect" href="/profile">Profile</a></li>
+      <li><a class="subheader">Search</a></li>
+      <li><a class="waves-effect" href="/search"><i class="material-icons">search</i></a></li>
+      <li><a class="subheader">About</a></li>
+      <li><a class="waves-effect" href="/about">About This Site</a></li>
+    </ul>
+    <table class='highlight responsive-table' style='margin-top:0;'>
+      <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Company</th>
+            <th>Location</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each users}}
+          <tr>
+            <td>{{first_name}}</td>
+            <td>{{last_name}}</td>
+            <td>{{company}}</td>
+            <td><{{location}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+      {{#if searchCompany}}
+      <form action='/search' method='get'>
+        <button type='submit' class='waves-effect waves-light btn'>View All Users</button>
+      </form>
+      {{/if}}
+    </table>
+    {{else}}
+      <h6>Restricted: Cannot View Page</h6>
+  {{/if}}
+  <script>
+    $(document).ready(function(){
+        $(".brand-logo").sideNav();
+    });
+  </script>
+</body>

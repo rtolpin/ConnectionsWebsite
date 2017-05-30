@@ -24,8 +24,9 @@ h1,h2{
 }
 
 .input-field.col.s6{
+  margin-left:5px;
   margin-top:5px;
-  width:30%;
+  width:80%;
 }
 
 #start-button{
@@ -76,12 +77,8 @@ table{
 }
 
 
-label{
+/*label{
   transition:
     font-size: .8rem;
     transform: translateY(-140%);
-}
-
-.input-field.col.s6{
-  margin-left:5px;
-}
+}*/

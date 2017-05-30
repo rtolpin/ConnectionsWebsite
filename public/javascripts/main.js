@@ -1,6 +1,5 @@
-/*var $ = require('jquery');
 
-function main(){
+/*function main(){
   console.log('enters main function');
   var inputField = document.querySelector('#lastName');
   $(".button-collapse").sideNav();

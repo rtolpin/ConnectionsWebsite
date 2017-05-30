@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   first_name: {type:String, required: true},
   last_name: {type:String, required: true},
   birthday: Date,
-  location: String,
+  location: {type:String, required: true},
   connections: [{type: mongoose.Schema.Types.ObjectId, ref:'User'}],
 }, {
 _id: true

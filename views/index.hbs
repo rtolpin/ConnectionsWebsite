@@ -3,42 +3,32 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   {{#if username}}
     <nav class='blue light-3'>
       <div class='nav-wrapper'>
         <a href="#" data-activates="slide-out" class="brand-logo"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
          <li><a href="/logout">Logout</a></li>
-       </ul>
+        </ul>
       </div>
     </nav>
-    <div class="w3-sidebar w3-bar-block w3-border-right blue" style="display:none; color:white;" id="mySidebar">
-      <button class="w3-bar-item w3-button blue darken-2" id='closeBtn'>Hide &times;</button>
-      <a href="/find/connections" class="w3-bar-item w3-button">Find Connections</a>
-      <a href="/profile" class="w3-bar-item w3-button">Profile</a>
-      <a href="/search" class="w3-bar-item w3-button">Search</a>
-      <a href="/about" class="w3-bar-item w3-button">About</a>
-    </div>
-    <!--<ul id="slide-out" class="side-nav">
-      <li><div class="userView">
-        <div class="background">
-        </div>
-        <a href="#!"><span>John Doe</span></a>
-        <a href="#!"><span>jdandturk@gmail.com</span></a>
-      </div></li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-      <li><a href="#!">Second Link</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <ul id="slide-out" class="side-nav">
+      <li><a class="waves-effect" href="/find/connections"></a></li>
+      <li><a class="subheader">Connect</a></li>
+      <li><a class="waves-effect" href="/find/connections">Find Connections</a></li>
+      <li><a class="subheader">Me</a></li>
+      <li><a class="waves-effect" href="/profile">Profile</a></li>
+      <li><a class="subheader">Search</a></li>
+      <li><a class="waves-effect" href="/search"><i class="material-icons">search</i></a></li>
+      <li><a class="subheader">About</a></li>
+      <li><a class="waves-effect" href="/about">About This Site</a></li>
     </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
     <h2 id='welcome'>Welcome to your Homepage, {{first_name}}</h2>
   {{else}}
     <nav class='blue darken-4'>
@@ -58,8 +48,9 @@
   {{/if}}
 <script type='text/javascript'>
   $(document).ready(function(){
-      //$(".button-collapse").sideNav();
-      $(".brand-logo").click(function(){
+      $(".brand-logo").sideNav();
+
+      /*$(".brand-logo").click(function(){
         console.log('brand logo clicked');
         var sidebar = $(".w3-sidebar.w3-bar-block.w3-border-right");
         var header = $("#welcome");
@@ -75,7 +66,7 @@
         sidebar.hide();
         var icon = $('.fa.fa-home');
         icon.replaceWith('<i class="material-icons">menu</i>');
-      });
+      });*/
   });
 </script>
 </body>

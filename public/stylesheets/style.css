@@ -61,6 +61,23 @@ table{
   width:170%;
 }
 
+#first_name_conn{
+  text-align: left;
+  margin-left:1px;
+}
+#first_name_conn:focus{
+  width:120%;
+}
+
+#last_name_conn{
+  text-align: left;
+  margin-left:1px;
+}
+
+#last_name_conn:focus{
+  width:120%;
+}
+
 .submitButton{
   display: inline-block;
   margin-top:90px;

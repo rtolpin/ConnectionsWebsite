@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
 const User = new mongoose.Schema({
-  name: {type: String, unique: true}
+  first_name: {type: String, required: true},
+  last_name: {type: String, required: true},
+  genderImageUrl: String
 }, {
 _id: true
 });
@@ -14,7 +16,7 @@ const UserSchema = new mongoose.Schema({
   last_name: {type:String, required: true},
   birthday: Date,
   location: {type:String, required: true},
-  connections: [{type: mongoose.Schema.Types.ObjectId, ref:'User'}],
+  connections: [User]
 }, {
 _id: true
 });

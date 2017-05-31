@@ -1,0 +1,46 @@
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</head>
+<body>
+  {{#if username}}
+    <nav class='blue light-3'>
+      <div class='nav-wrapper'>
+        <a href="#" data-activates="slide-out" class="brand-logo"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+         <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <ul id="slide-out" class="side-nav">
+      <li><a class="subheader">Connect</a></li>
+      <li><a class="waves-effect" href="/find/connections">Find Connections</a></li>
+      <li><a class="subheader">Me</a></li>
+      <li><a class="waves-effect" href="/profile">Profile</a></li>
+      <li><a class="subheader">Search</a></li>
+      <li><a class="waves-effect" href="/search"><i class="material-icons">search</i></a></li>
+      <li><a class="subheader">About</a></li>
+      <li><a class="waves-effect" href="/about">About This Site</a></li>
+    </ul>
+    <div class='row' style='text-align:left; margin-top:50px;'>
+      <div class='col s10 m12'>
+        <div class='card'>
+          <div class='card-content'>
+            <h5 style='margin-top:0;'>About This Site</h5>
+            <p class='blue-text'>A great way to manage your relationships, and keep track of all of your connections.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+          $(".brand-logo").sideNav();
+      });
+    </script>
+  {{else}}
+    <h6>Restricted: Cannot View Page</h6>
+  {{/if}}
+</body>

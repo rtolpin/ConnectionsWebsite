@@ -39,6 +39,41 @@ router.get('/profile', function(req, res){
   });
 });
 
+router.get('/about', function(req, res){
+  res.render('about', {username: req.session.username});
+});
+
+router.get('/find/connections', function(req, res){
+  UserSchema.findOne({username: req.session.username}).populate('connections').exec(function(err, user){
+    res.render('connections', {username: req.session.username, user: user, connections: user.connections});
+  });
+});
+
+router.post('/create/connection', function(req, res){
+  UserSchema.findOne({username: req.session.username}, function(err, user){
+    if(err){ res.send(err); }
+    var genderUrl;
+    console.log(req.body.gender);
+    if(req.body.gender == '1'){
+      genderUrl = 'https://marketplace.canva.com/MAB3okQ_Ypk/1/thumbnail/canva-business-woman-icon-MAB3okQ_Ypk.png';
+    }else{
+      genderUrl = 'https://marketplace.canva.com/MAB3og_uyQk/1/thumbnail/canva-businessman-avatar-MAB3og_uyQk.png';
+    }
+    user.connections.push({first_name: req.body.first_name, last_name: req.body.last_name, genderImageUrl: genderUrl});
+    user.save(function(saveErr, user){
+      if(saveErr){ res.send(saveErr); }
+      console.log(user);
+      res.redirect('/find/connections');
+    });
+  });
+});
+
+router.get('/connect/profile', function(req, res){
+  UserSchema.findOne({first_name: req.body.first_name, last_name: req.body.last_name, company: req.body.company}, function(err, user){
+    res.render('profile', {user: user});
+  });
+});
+
 router.get('/search', function(req, res){
   console.log(req.query.company);
   //let searchParams = req.query.search.split(' ');

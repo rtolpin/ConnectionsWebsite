@@ -10,6 +10,9 @@
     <nav class='blue' style=''>
       <div class="nav-wrapper">
         <a href="#" data-activates="slide-out" class="brand-logo"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+         <li><a href="/logout">Logout</a></li>
+        </ul>
       </div>
     </nav>
     <ul id="slide-out" class="side-nav">
@@ -34,8 +37,8 @@
             </form>
           </div>
         </div>
+        {{#if user}}
           <div class='row'>
-            {{#if user}}
               <div class='col s3' style="margin-left:0;">
                 <div class="divider"></div>
                 <div class="section">
@@ -81,6 +84,6 @@
       });
     </script>
   {{else}}
-    <h6>Restricted: Cannot View Page</h6>
+    <h6 class='white-text'>Restricted: Cannot View Page</h6>
   {{/if}}
 </body>

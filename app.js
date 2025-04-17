@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session);
 const mongoose = require('mongoose');
 var $ = require('jquery');
 //require('./models/UserSchema');
@@ -20,12 +21,15 @@ var index = require('./routes/index');
 
 var app = express();
 
-var sessionOptions = {
-    secret: 'secret cookie thang',
-    resave: true,
-    saveUninitialized: true
-};
-app.use(session(sessionOptions));
+app.use(session({
+  cookie: { maxAge: 86400000 },
+  store: new MemoryStore({
+    checkPeriod: 86400000 // prune expired entries every 24h
+  }),
+  resave: false,
+  saveUninitialized: true,
+  secret: 'keyboard cat'
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

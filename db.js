@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const User = new mongoose.Schema({
   first_name: {type: String, required: true},
   last_name: {type: String, required: true},
@@ -21,12 +23,15 @@ const UserSchema = new mongoose.Schema({
 _id: true
 });
 
-
-/*const Company = new mongoose.Schema({
-  users: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
-});*/
-
+const dbURI = process.env.MONGODB_URI;
 
 mongoose.model('User', User);
 mongoose.model('UserSchema', UserSchema);
-mongoose.connect('mongodb://localhost:27017/connectionsDB');
+
+const connect = async () => {
+  await mongoose.connect(dbURI);
+}
+
+connect();
+
+

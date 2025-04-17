@@ -22,7 +22,6 @@
     <form class='col s12' action='/login' method='post'>
       <div class="row">
           <div class="input-field col s6" style="width:30%; margin-top:80px;">
-            <i class="material-icons prefix">account_circle</i>
             <input id="username_login" type="text" class="validate" name="username">
             <label for="username_login">Username</label>
           </div>
@@ -31,7 +30,8 @@
             <label for="password_login">Password</label>
           </div>
           <div class='submitButton col'>
-            <button type='submit' class='waves-effect waves-light btn black'>Submit<i class="material-icons right">send</i>
+            <button type='submit' class='waves-effect waves-light btn black'>
+              Submit
             </button>
           </div>
           {{#if userDoesNotExist}}

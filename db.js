@@ -29,4 +29,4 @@ _id: true
 
 mongoose.model('User', User);
 mongoose.model('UserSchema', UserSchema);
-mongoose.connect('mongodb://localhost/connectionsDB');
+mongoose.connect('mongodb://localhost:27017/connectionsDB');
